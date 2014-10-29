@@ -39,8 +39,17 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'debugger', group: [:development, :test]
 
 ###### ADDITIONAL GEMS
-gem 'capybara'
 gem 'backbars'
 gem 'twilio-ruby'
 gem 'httparty'
 gem 'pry-rails'
+
+group :test do
+  gem 'rspec-rails', '~> 3.0.0'
+  gem 'capybara'
+  gem 'rspec-collection_matchers'
+  gem 'shoulda-matchers', require: false
+  gem 'selenium-webdriver', '~> 2.42.0'
+  gem 'cucumber-rails', :require => false
+  gem 'database_cleaner'
+end

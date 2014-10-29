@@ -11,6 +11,6 @@ class User < ActiveRecord::Base
   has_secure_password
 
   # Validations
-  validates :email, uniqueness: true
+  validates :email, uniqueness: true, presence: true
 
 end
