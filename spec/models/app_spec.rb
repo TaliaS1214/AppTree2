@@ -45,6 +45,16 @@ RSpec.describe App, :type => :model do
     })
   }
 
+  let(:sean) {
+    User.new({
+      first_name: 'Sean',
+      last_name: 'Talia',
+      email: 'talias432@gmail.com',
+      password: 'CapybaraIsCool12345',
+      phone_number: '2482026504'
+      })
+  }
+
   it "should not let an app be created with any of the database table columns empty" do
     expect(twitter).to be_valid
   end
@@ -56,6 +66,11 @@ RSpec.describe App, :type => :model do
 
   it "should set upvote count and popularity score to 0 on creation" do
     expect(twitter.upvote_count).to eq(0)
+  end
+
+  it "should increase upvote_count after user upvotes it" do
+    sean.upvote_app(twitter)
+    expect(twitter.upvote_count).to eq(1)
   end
 
 end

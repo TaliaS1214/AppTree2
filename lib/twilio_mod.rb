@@ -16,7 +16,7 @@ module TwilioMod
 
   def self.message_body(app)
     app_name = app.name.length < 20 ? app.name : app.name[0..20] + "..."
-    "#{app_name}\n\nDownload Link: #{app.track_view_url}"
+    "App: #{app_name}\n\nDownload Link: #{app.track_view_url}"
   end
 
 end

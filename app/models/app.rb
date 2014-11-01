@@ -4,10 +4,10 @@ class App < ActiveRecord::Base
   has_and_belongs_to_many :genres
   has_many :upvotes
   has_many :bookmarks
-  # Below says to give a METHOD bookmarked_apps, look in the TABLE bookmarks,
+  # Below says to give a METHOD upvoting_users, look in the TABLE upvotes,
   # and look at the COLUMN user_id
-  has_many :bookmarking_users, through: :bookmarks, source: :user
   has_many :upvoting_users, through: :upvotes, source: :user
+  has_many :bookmarking_users, through: :bookmarks, source: :user
 
   # Validations
   validates :itunes_id, :track_view_url, :uniqueness => true
@@ -16,7 +16,6 @@ class App < ActiveRecord::Base
   :tags, :track_view_url, :presence => true
 
   # Callbacks
-  before_create :set_initial_data
 
   # Custom methods
   def add_genres
@@ -26,9 +25,8 @@ class App < ActiveRecord::Base
     end
   end
 
-  def set_initial_data
-    self.upvote_count = 0
-    self.popularity_score = 0
+  def upvote_count
+    Upvote.where(app_id: self.id).count
   end
 
 end
