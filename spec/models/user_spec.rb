@@ -13,6 +13,22 @@ RSpec.describe User, :type => :model do
     })
   }
 
+  let!(:twitter) {
+    App.create!({
+      name: "Twitter",
+      tags: "Social Networking,Utilities",
+      screenshot_urls: "http://a1.mzstatic.com/us/r30/Purple3/v4/68/e8/ef/...",
+      release_date: "10/09/2009",
+      creator: "Twitter, Inc.",
+      price: 0,
+      small_avatar_url: "http://a1058.phobos.apple.com/us/r30/Purple3/v4/c9...",
+      large_avatar_url: "http://a1767.phobos.apple.com/us/r30/Purple1/v4/c9...",
+      track_view_url: "https://itunes.apple.com/us/app/twitter/id33390327...",
+      description: "Twitter is a free app that lets you connect with p...",
+      itunes_id: 333903271
+    })
+  }
+
   it "should allow a user to be made if they have an email, password, first_name, and last_name" do
     expect(sean).to be_valid
   end
@@ -28,7 +44,9 @@ RSpec.describe User, :type => :model do
     })
 
     expect(bad_user).to_not be_valid
+
   end
+  
 
   it "should not allow duplicate emails" do
     expect(sean).to validate_uniqueness_of(:email)
@@ -87,6 +105,17 @@ RSpec.describe User, :type => :model do
     })
 
     expect(bad_user).to_not be_valid
+  end
+
+  it "should be able to upvote an app" do
+    sean.upvote_app(twitter)
+    expect(sean.upvoted_apps).to include(twitter)
+  end
+
+  it "should be able to downvote an app" do
+    sean.upvote_app(twitter)
+    sean.downvote_app(twitter)
+    expect(sean.upvoted_apps).to eq([])
   end
 
 end
