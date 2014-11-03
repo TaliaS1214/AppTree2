@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe User, :type => :model do
 
   let(:sean) {
-    User.new({
+    User.create({
       first_name: 'Sean',
       last_name: 'Talia',
       email: 'talias432@gmail.com',
@@ -65,10 +65,10 @@ RSpec.describe User, :type => :model do
     expect(sean.upvoted_apps).to include(twitter)
   end
 
-  xit "should be able to downvote an app" do
+  it "should be able to downvote an app" do
     sean.upvote_app(twitter)
     sean.downvote_app(twitter)
-    expect(sean.upvoted_apps).to !include(twitter)
+    expect(sean.upvoted_apps).to eq([])
   end
 
 end
