@@ -39,6 +39,14 @@ class App < ActiveRecord::Base
                               }
 
   # Custom methods
+  def upvotes_this_week
+    Upvote.where(app_id: self.id, created_at: 1.week.ago..DateTime.now).count
+  end
+
+  def upvotes_this_month
+    Upvote.where(app_id: self.id, created_at: 1.month.ago..DateTime.now).count
+  end
+
   def add_genres
     self.tags.split(',').each do |tag|
       genre = Genre.find_by(name: tag.downcase)
