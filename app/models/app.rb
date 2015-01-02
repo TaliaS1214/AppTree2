@@ -18,22 +18,24 @@ class App < ActiveRecord::Base
   # Callbacks
 
   # Scopes
-  scope :top_this_week,   ->(num) {
+  scope :top_this_week,   ->(limit, offset = 0) {
                                 joins(:upvotes).
                                 select('apps.*, count(upvotes.id) as upvotes_count').
                                 where(:'upvotes.created_at' => 1.week.ago..DateTime.now).
                                 group("upvotes.app_id,apps.#{self.column_names.join(',apps.')}").
                                 order('upvotes_count DESC').
-                                limit(num)
+                                limit(limit).
+                                offset(offset)
                               }
 
-  scope :top_this_month,  ->(num) {
+  scope :top_this_month,  ->(limit, offset = 0) {
                                 joins(:upvotes).
                                 select('apps.*, count(upvotes.id) as upvotes_count').
                                 where(:'upvotes.created_at' => 1.month.ago..DateTime.now).
                                 group("upvotes.app_id,apps.#{self.column_names.join(',apps.')}").
                                 order('upvotes_count DESC').
-                                limit(num)
+                                limit(limit).
+                                offset(offset)
                               }
 
   # Custom methods
