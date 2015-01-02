@@ -43,7 +43,7 @@ gem 'backbars'
 gem 'twilio-ruby'
 gem 'httparty'
 
-gem 'pry-rails', group: :development
+gem 'pry-rails', group: [:development, :test]
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
