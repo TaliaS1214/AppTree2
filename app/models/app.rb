@@ -17,6 +17,25 @@ class App < ActiveRecord::Base
 
   # Callbacks
 
+  # Scopes
+  scope :top_this_week,   ->(num) {
+                                joins(:upvotes).
+                                select('apps.*, count(upvotes.id) as upvotes_count').
+                                where(:'upvotes.created_at' => 1.week.ago..DateTime.now).
+                                group("upvotes.app_id,apps.#{self.column_names.join(',apps.')}").
+                                order('upvotes_count DESC').
+                                limit(num)
+                              }
+
+  scope :top_this_month,  ->(num) {
+                                joins(:upvotes).
+                                select('apps.*, count(upvotes.id) as upvotes_count').
+                                where(:'upvotes.created_at' => 1.month.ago..DateTime.now).
+                                group("upvotes.app_id,apps.#{self.column_names.join(',apps.')}").
+                                order('upvotes_count DESC').
+                                limit(num)
+                              }
+
   # Custom methods
   def add_genres
     self.tags.split(',').each do |tag|

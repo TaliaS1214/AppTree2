@@ -84,6 +84,17 @@ RSpec.describe App, :type => :model do
     })
   }
 
+  let(:najee) {
+    User.create!({
+      first_name: 'Najee',
+      last_name: 'Gardner',
+      email: 'najee@gmail.com',
+      password: 'najeegardner',
+      password_confirmation: 'najeegardner',
+      phone_number: '0000000000'
+      })
+    }
+
   it "should not let an app be created with any of the database table columns empty" do
     expect(twitter).to be_valid
   end
@@ -101,5 +112,23 @@ RSpec.describe App, :type => :model do
     sean.upvote_app(twitter)
     expect(twitter.upvote_count).to eq(1)
   end
+
+  it "should show up in top apps this week if it was among the most upvoted" do
+    sean.upvote_app(twitter)
+    expect(App.top_this_week(10)).to include(twitter)
+  end
+
+  it "should not show up in top apps this week if it wasn't upvoted this week" do
+    sean.upvote_app(twitter)
+    expect(App.top_this_week(10)).not_to include(dark_sky)
+  end
+
+  it "should have the more upvoted apps this week on top" do
+    sean.upvote_app(twitter)
+    sean.upvote_app(dark_sky)
+    najee.upvote_app(twitter)
+    expect(App.top_this_week(10).first).to eq(twitter)
+  end
+
 
 end
