@@ -6,10 +6,11 @@ Rails.application.routes.draw do
   resources :apps, only: [:index, :create, :show, :update]
 
   # Genres
-  resources :apps
+  resources :genres, only: [:index, :create, :show, :update]
+
   # Users
 
   # Searches
-  resources :searches, only: [:create]
+  get '/search'     => 'searches#create'
 
 end
