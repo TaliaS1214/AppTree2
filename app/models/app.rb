@@ -17,6 +17,10 @@ class App < ActiveRecord::Base
 
   # Callbacks
 
+  # Scopes
+  scope :top_this_week,   -> { }
+  scope :top_this_month,  -> {}
+
   # Custom methods
   def add_genres
     self.tags.split(',').each do |tag|
