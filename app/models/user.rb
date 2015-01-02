@@ -6,8 +6,8 @@ class User < ActiveRecord::Base
   has_many :bookmarks
   # Below says to give a METHOD upvoted_apps, look in the TABLE upvotes,
   # and look at the COLUMN app_id
-  has_many :upvoted_apps, through: :upvotes, source: :app, class_name: "App"
-  #has_many :bookmarked_apps, through: :bookmarks, source: :app
+  has_many :upvoted_apps, through: :upvotes, source: :app
+  has_many :bookmarked_apps, through: :bookmarks, source: :app
   has_secure_password
 
   # Validations
@@ -18,16 +18,11 @@ class User < ActiveRecord::Base
     message: "only allows phone numbers" }
 
   def upvote_app(app)
-    Upvote.create!({
-        user_id: self.id,
-        app_id: app.id
-    })
+    self.upvoted_apps << app if !self.upvoted_apps.include? app
   end
 
   def downvote_app(app)
-    Upvote.where({
-      user_id: self.id,
-      app_id: app.id
-    }).first.destroy
+    Upvote.find_by({ user_id: self.id, app_id: app.id }).destroy
   end
+  
 end

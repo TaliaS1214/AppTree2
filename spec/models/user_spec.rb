@@ -114,7 +114,14 @@ RSpec.describe User, :type => :model do
   it "should be able to downvote an app" do
     sean.upvote_app(twitter)
     sean.downvote_app(twitter)
+    sean.reload
     expect(sean.upvoted_apps).to eq([])
+  end
+
+  it "should not be able to upvote an app more than once before downvoting it" do
+    sean.upvote_app(twitter)
+    sean.upvote_app(twitter)
+    expect(sean.upvoted_apps).to eq([twitter])
   end
 
 end

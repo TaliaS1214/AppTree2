@@ -17,7 +17,7 @@ module AppStore
       screenshot_urls:  json_app['screenshotUrls'].join(','),
       release_date:     DateTime.parse(json_app['releaseDate']).strftime('%m/%d/%Y'),
       creator:          json_app['artistName'],
-      price:            json_app['price'],
+      price:            (json_app['price']*100).to_i,
       small_avatar_url: json_app['artworkUrl60'],
       large_avatar_url: json_app['artworkUrl512'],
       track_view_url:   json_app['trackViewUrl'],

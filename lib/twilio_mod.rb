@@ -1,13 +1,14 @@
 module TwilioMod
 
-  def self.send_text(app, user_phone_number)
+  def self.send_text(app, user)
     twilio_sid, twilio_token, twilio_phone_number = twilio_info
     twilio_client = Twilio::REST::Client.new(twilio_sid, twilio_token)
     twilio_client.account.sms.messages.create(
       :from => "+1#{twilio_phone_number}",
-      :to => "+1#{user_phone_number}",
+      :to => "+1#{user.phone_number}",
       :body => message_body(app)
     )
+    user.bookmarked_apps << app
   end
 
   def self.twilio_info
