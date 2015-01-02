@@ -47,7 +47,6 @@ RSpec.describe User, :type => :model do
 
   end
 
-
   it "should not allow duplicate emails" do
     expect(sean).to validate_uniqueness_of(:email)
   end
