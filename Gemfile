@@ -39,9 +39,19 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'debugger', group: [:development, :test]
 
 ###### ADDITIONAL GEMS
+# Bootstrap/Handlebars
 gem 'backbars'
+
+# Twilio
 gem 'twilio-ruby'
+
+# iTunes Store API Calls
 gem 'httparty'
+
+# Bootstrap for styling
+gem 'bootstrap-sass', '~> 3.3.1'
+gem 'sass-rails', '~> 4.0.3'
+gem 'autoprefixer-rails'
 
 gem 'pry-rails', group: [:development, :test]
 
