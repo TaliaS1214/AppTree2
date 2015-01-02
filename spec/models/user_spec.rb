@@ -35,7 +35,7 @@ RSpec.describe User, :type => :model do
 
   it "should not allow a user be made if password does not match password confirmation" do
     bad_user = User.new({
-      first_name: 'Sean', 
+      first_name: 'Sean',
       last_name: 'Talia',
       email: 'talias432@gmail.com',
       password: 'thepassword',
@@ -46,13 +46,12 @@ RSpec.describe User, :type => :model do
     expect(bad_user).to_not be_valid
 
   end
-  
 
   it "should not allow duplicate emails" do
     expect(sean).to validate_uniqueness_of(:email)
   end
 
-  it "should not allow a user to be created without a first_name" do 
+  it "should not allow a user to be created without a first_name" do
     expect(sean).to validate_presence_of(:first_name)
   end
 
@@ -66,7 +65,7 @@ RSpec.describe User, :type => :model do
 
   it "should not allow a user to be created without a password" do
     bad_user = User.new({
-      first_name: 'Sean', 
+      first_name: 'Sean',
       last_name: 'Talia',
       email: 'talias432@gmail.com',
       password: '',
@@ -83,7 +82,7 @@ RSpec.describe User, :type => :model do
 
   it "should not allow a user to be created with a password that is less than 8 characters long" do
     bad_user = User.new({
-      first_name: 'Sean', 
+      first_name: 'Sean',
       last_name: 'Talia',
       email: 'talias432@gmail.com',
       password: '1234567',
@@ -96,7 +95,7 @@ RSpec.describe User, :type => :model do
 
   it "should only allow a phone number to be saved if it has the format '12345678'" do
     bad_user = User.new({
-      first_name: 'Sean', 
+      first_name: 'Sean',
       last_name: 'Talia',
       email: 'talias432@gmail.com',
       password: '12345678',
