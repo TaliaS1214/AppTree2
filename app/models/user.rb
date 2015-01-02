@@ -25,4 +25,8 @@ class User < ActiveRecord::Base
     Upvote.find_by({ user_id: self.id, app_id: app.id }).destroy
   end
 
+  def safe_json
+    self.to_json(only: [:first_name, :last_name, :id])
+  end
+
 end
