@@ -21,6 +21,10 @@ var NavbarView = Backbone.View.extend({
   searchApps: function(e){
     e.preventDefault();
     var searchTerm = this.$el.find('input').val();
+
+    $.get("/search", { query: searchTerm }, function(data){
+      console.log(data);
+    });
   }
 
 });
