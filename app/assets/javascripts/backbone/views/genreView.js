@@ -3,6 +3,8 @@ var GenreView = Backbone.View.extend({
     this.render();
   },
   render: function(){
-    return $('<li>').text(this.model.attributes.name);
+    $listItem = $('<li>');
+    $span = $('<span>').text(this.model.attributes.name);
+    return $listItem.append($span);
   }
 });
