@@ -1,0 +1,22 @@
+.form-group label {
+  color: rgba(100, 100, 100, 1.0);
+  font-weight: 200;
+  font-size: 14px;
+
+}
+
+.mini-label {
+  font-weight: 200;
+  font-size: 12px;
+}
+
+.form-button button {
+  background: darkorange;
+  border: none;
+  width: 150px;
+  height: 40px;
+
+  &:hover {
+    background: orange;
+  }
+}

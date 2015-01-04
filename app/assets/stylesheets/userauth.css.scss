@@ -1,0 +1,30 @@
+div.userauth {
+  h4 {
+    font-size: 17px;
+    margin: 30px 0 20px 0;
+  }
+
+  .form-group {
+    margin-left: 10px;
+  }
+
+  input {
+    width: 300px;
+  }
+
+  #signin-form {
+    background: rgba(47, 54, 61, 1.0);
+    height: 600px;
+    color: white;
+    border-radius: 0 14px 14px 0;
+    float: right;
+
+    label {
+      color: white;
+    }
+  }
+
+  .form-button {
+    margin-left: 10px;
+  }
+}
