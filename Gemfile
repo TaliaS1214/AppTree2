@@ -37,8 +37,11 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'debugger', group: [:development, :test]
 
 ###### ADDITIONAL GEMS
-# Bootstrap/Handlebars
+# Backbone/Handlebars
 gem 'backbars'
+
+# Marionette
+gem 'marionette-rails'
 
 # Twilio
 gem 'twilio-ruby'
