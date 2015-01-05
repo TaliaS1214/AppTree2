@@ -1,0 +1,18 @@
+#modal-background {
+  .modal-content {
+    border-radius: 15px;
+  }
+
+  .close {
+    text-shadow: none;
+    color: white;
+    font-size: 13px;
+    font-weight: 200;
+    opacity: 0.5;
+    margin-top: 5px;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

@@ -24,7 +24,6 @@ html {
 
     .header {
       padding: 0 0 7px 0;
-      border-bottom: 1px solid #bbbbbb;
     }
 
   }
@@ -49,15 +48,10 @@ html {
 
   #app-list-container {
 
-    .top-apps-button {
-      font-size: 12px;
-      margin-left: 5px;
-      color: #666a78;
+    .nav-tabs {
+      font-size: 13px;
+      margin-top: -10px;
       cursor: pointer;
-    }
-
-    .top-apps-button:hover {
-      border-bottom: 1px solid #bbbbbb;
     }
 
   }

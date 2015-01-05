@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: :true, presence: :true
   validates :password, length: { minimum: 8 }
   validates :phone_number, format: { multiline: true, with: /^$|^[0-9]{10}$|^[0-9]{11}$/,
-    message: "only allows phone numbers" }
+    message: "must be valid." }
 
   def upvote_app(app)
     self.upvoted_apps << app if !self.upvoted_apps.include? app
@@ -23,6 +23,10 @@ class User < ActiveRecord::Base
 
   def downvote_app(app)
     Upvote.find_by({ user_id: self.id, app_id: app.id }).destroy
+  end
+
+  def safe_json
+    self.to_json(only: [:first_name, :last_name, :id])
   end
 
 end

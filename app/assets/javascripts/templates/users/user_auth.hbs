@@ -1,0 +1,54 @@
+<div class="modal-content row userauth">
+  <div id="signup-form" class="col-md-7">
+    <h4>Create a new account</h4>
+    <div class="error"></div>
+    <div class="name form-inline form-group">
+      <div class="row">
+        <label for="signup-first-name">First Name</label>
+        <label for="signup-last-name">Last Name</label>
+      </div>
+      <div class="row">
+        <input id="signup-first-name" class="form-control" type="text" name="user[first_name]">
+        <input id="signup-last-name" class="form-control" type="text" name="user[last_name]">
+      </div>
+    </div>
+    <div class="email form-group">
+      <label for="signup-email">Email</label>
+      <input id="signup-email" class="form-control" type="text">
+    </div>
+    <div class="password form-group">
+      <label for="signup-password">Password</label>
+      <input id="signup-password" class="form-control" type="password">
+    </div>
+    <div class="password-confirmation form-group">
+      <label for="signup-password-confirmation">Password Confirmation</label>
+      <input id="signup-password-confirmation" class="form-control" type="password">
+    </div>
+    <div class="phone-number form-group">
+      <label for="signup-phone-number">Optional: Phone Number</label>
+      <p class="mini-label">(This will only be used for sending download links to your phone.)</p>
+      <input id="signup-phone-number" class="form-control" type="text">
+    </div>
+
+    <div class="form-button">
+      <button class="btn btn-primary create-account">Create Account</button>
+    </div>
+  </div>
+
+  <div id="signin-form" class="col-md-5">
+    <button class="close" data-dismiss="modal" aria-label="Close">close this window <span aria-hidden="true">&times;</span></button>
+    <h4>Sign into an existing account</h4>
+    <div class="error"></div>
+    <div class="form-group">
+      <label for="signin-email">Email</label>
+      <input id="signin-email" class="form-control" type="text">
+    </div>
+    <div class="form-group">
+      <label for="signin-password">Password</label>
+      <input id="signin-password" class="form-control" type="password">
+    </div>
+    <div class="form-button">
+      <button class="btn btn-primary signin">Sign In</button>
+    </div>
+  </div>
+</div>

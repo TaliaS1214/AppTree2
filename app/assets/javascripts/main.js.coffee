@@ -1,11 +1,22 @@
+@AppTree =
+  Views:       {}
+  Models:      {}
+  Collections: {}
+  Routers:     {}
+
 $ ->
+  AppTree.Routers.mainRouter = new AppTree.Routers.Main
+  Backbone.history.start()
+
   # Normal jQuery Stuff
   $appListHeader = $ "#app-list-container .header"
-  $appListHeader.on "click", "span", (event) ->
-    $spans = $(event.delegateTarget).find ".top-apps-button"
-    weekOrMonth = $spans.filter(":visible").text().split(" ").pop()
-    $('#week-or-month').text(weekOrMonth)
-    $spans.toggle()
+  $appListHeader.on "click", "a", (event) ->
+    $header = $(event.delegateTarget)
+    $tabs = $header.find("li").removeClass('active')
+    $clickedTab = $(event.target)
+    $clickedTab.parent().addClass('active')
+    filter = $clickedTab.text()
+    $('#top-apps-filter').text(filter)
 
   # Backbone Stuff
   window.navbarView = new NavbarView()
