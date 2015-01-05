@@ -15,6 +15,7 @@
 //= require bootstrap-sprockets
 //= require underscore
 //= require backbone
+//= require backbone.marionette
 //= require handlebars
 //= require_tree ./backbone/routers
 //= require_tree ./backbone/models
