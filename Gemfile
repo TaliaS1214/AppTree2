@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+source 'https://rails-assets.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
@@ -37,8 +37,9 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'debugger', group: [:development, :test]
 
 ###### ADDITIONAL GEMS
-# Bootstrap/Handlebars
+# Bootstrap, Handlebars, and Marionette
 gem 'backbars'
+gem 'rails-assets-backbone.marionette'
 
 # Twilio
 gem 'twilio-ruby'
