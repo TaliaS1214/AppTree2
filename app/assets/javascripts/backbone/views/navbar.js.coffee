@@ -1,19 +1,15 @@
-class @NavbarView extends Backbone.View
+class @NavbarView extends Backbone.Marionette.ItemView
 
   el: '#main-navbar'
-
-  initialize: ->
-    this.signedInTemplate = HandlebarsTemplates['layouts/signed_in_navbar']
-    this.signedOutTemplate = HandlebarsTemplates['layouts/signed_out_navbar']
 
   events:
     'click #search-apps-button': 'searchApps'
 
-  render: ->
-    if this.model
-      this.$el.html(this.signedInTemplate(this.model.toJSON()))
+  getTemplate: (userModel) ->
+    if userModel
+      HandlebarsTemplates['layouts/signed_in_navbar'](userModel)
     else
-      this.$el.html(this.signedOutTemplate())
+      HandlebarsTemplates['layouts/signed_out_navbar']
 
   searchApps: (e) ->
     e.preventDefault()
@@ -25,3 +21,13 @@ class @NavbarView extends Backbone.View
         query: searchTerm
       success: (data) ->
         console.log data
+
+  # initialize: ->
+  #   this.signedInTemplate = HandlebarsTemplates['layouts/signed_in_navbar']
+  #   this.signedOutTemplate = HandlebarsTemplates['layouts/signed_out_navbar']
+
+  # render: ->
+  #   if this.model
+  #     this.$el.html(this.signedInTemplate(this.model.toJSON()))
+  #   else
+  #     this.$el.html(this.signedOutTemplate())

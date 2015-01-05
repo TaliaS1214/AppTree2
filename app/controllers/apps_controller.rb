@@ -2,7 +2,7 @@ class AppsController < ApplicationController
 
   def index
     # Default Apps - Will Be Changed to Top This Week
-    render json: App.all.to_json, status: 200
+    @apps = App.all
   end
 
   def create

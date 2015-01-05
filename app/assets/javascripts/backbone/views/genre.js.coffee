@@ -5,6 +5,17 @@ class @GenreView extends Backbone.Marionette.ItemView
   template: (genreModel) ->
     HandlebarsTemplates['genres/single'](genreModel)
 
+  events:
+    "click": "loadApps"
+
+  loadApps: (e) ->
+    genreId = this.model.attributes.id
+    $.ajax "/genres/#{genreId}",
+      data:
+        id: genreId
+      success: (data) ->
+        appList.reset(data.apps)
+
 # class @GenreView extends Backbone.View
 #
 #   tagName: 'li'
