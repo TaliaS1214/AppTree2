@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:current_user_id]) if session[:current_user_id]
   end
 
+  def authenticate
+    render(nothing: true) if !session[:current_user_id]
+  end
+
   def authorize
     if session[:current_user_id] != params[:id]
       render json: {error: 'You are not authorized for that action.'}

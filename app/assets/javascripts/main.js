@@ -1,5 +1,15 @@
+AppTree = {
+  Views:        {},
+  Models:       {},
+  Collections:  {},
+  Routers:      {}
+};
+
+
 $(function(){
-  var navbarView = new NavbarView();
+  AppTree.Routers.mainRouter = new AppTree.Routers.Main();
+  Backbone.history.start();
+
 
   var genreList = new GenreCollection();
   var genreListView;

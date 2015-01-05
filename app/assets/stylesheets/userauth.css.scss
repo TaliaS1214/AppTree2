@@ -1,4 +1,17 @@
 div.userauth {
+  height: 560px;
+
+  .alert {
+    height: 35px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+
+    button.alert-close span {
+      color: black;
+    }
+  }
+
   h4 {
     font-size: 17px;
     margin: 30px 0 20px 0;
@@ -12,9 +25,26 @@ div.userauth {
     width: 300px;
   }
 
+  .form-inline {
+    width: 300px;
+    margin-left: 25px;
+
+    input {
+      width: 148px;
+    }
+
+    label {
+      margin: 0;
+
+      &:last-child {
+        margin-left: 82px;
+      }
+    }
+  }
+
   #signin-form {
     background: rgba(47, 54, 61, 1.0);
-    height: 600px;
+    height: 100%;
     color: white;
     border-radius: 0 14px 14px 0;
     float: right;
@@ -26,5 +56,6 @@ div.userauth {
 
   .form-button {
     margin-left: 10px;
+    margin-bottom: 20px;
   }
 }
