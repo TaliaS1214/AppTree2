@@ -4,7 +4,67 @@ html {
 }
 
 .site-outer-container {
-  padding: 0px 0px;
+  background-size: fixed;
+  -webkit-background-size: fixed;
+  -moz-background-size: fixed;
+  -o-background-size: fixed;
+  min-height: 800px;
+  max-width: 2200px;
+  width: 100%;
+}
+
+.main-body-container {
+  padding: 0px 50px;
+
+  ul {
+    list-style-type: none;
+  }
+
+  #homepage {
+
+    .header {
+      padding: 0 0 7px 0;
+      border-bottom: 1px solid #bbbbbb;
+    }
+
+  }
+
+  #genre-list-container {
+
+    .header {
+      margin: 10px 0 10px 40px;
+    }
+
+    li {
+      padding: 7px 0px 7px 5px;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    li:hover {
+      background-color: #a7c4db;
+    }
+
+  }
+
+  #app-list-container {
+
+    span {
+      font-size: 12px;
+      margin-left: 5px;
+      color: #666a78;
+      cursor: pointer;
+    }
+
+    span:hover {
+      border-bottom: 1px solid #bbbbbb;
+    }
+
+  }
+
+  .hide-first {
+    display: none;
+  }
 }
 
 .navbar {
